@@ -1,4 +1,4 @@
-# Linux
+# Linux dotfiles
 
 ## Клавиатура
 
@@ -10,7 +10,6 @@
 - нажатие caps как единственной клавиши работает как esc (очень удобно в doom + evil)
 
 /etc/X11/xorg.conf.d/30-keyboard.conf:
-
 
     Section "InputClass"
             Identifier "system-keyboard"
