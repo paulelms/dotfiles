@@ -72,7 +72,7 @@
 ### Автоматическое переключение на внешний монитор
 
 Настраиваю автоматическое переключение на внешний монитор и обратно.
-Srandrd это демон, который мониторит изменения в конфигурации экранов (вместо autorandr можно просто использовать xrandr):
+[Srandrd](https://github.com/jceb/srandrd/) это демон, который мониторит изменения в конфигурации экранов (вместо [autorandr](https://github.com/phillipberndt/autorandr) можно просто использовать xrandr):
 
     srandrd 'autorandr --change --default common'
 
