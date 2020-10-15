@@ -72,24 +72,24 @@
 ### Автоматическое переключение на внешний монитор
 
 Настраиваю автоматическое переключение на внешний монитор и обратно.
-Srandrd это демон, который мониторит изменения в конфигурации экранов:
+Srandrd это демон, который мониторит изменения в конфигурации экранов (вместо autorandr можно просто использовать xrandr):
 
-    exec --no-startup-id srandrd ~/.local/bin/display_handler.sh
+    srandrd 'autorandr --change --default common'
 
-Примерный display_handler.sh (вместо autorandr можно использовать просто xrandr):
-
-``` shell
-case "$SRANDRD_ACTION" in
-    "HDMI1 connected")
-        autorandr home
-        [ -f ~/.Xresources.home ] && xrdb -merge ~/.Xresources.home
-        ;;
-    "HDMI1 disconnected")
-        autorandr outdoor
-        [ -f ~/.Xresources.outdoor ] && xrdb -merge ~/.Xresources.outdoor
-        ;;
-esac
-```
+    ➜  ~ tree .config/autorandr 
+    .config/autorandr
+    ├── home
+    │   ├── config
+    │   ├── postswitch
+    │   └── setup
+    ├── outdoor
+    │   ├── config
+    │   ├── postswitch
+    │   └── setup
+    ├── postswitch
+    └── postswitch.d
+        ├── i3-restart
+        └── telegram.sh
 
 Есть ещё универсальное (для ноутбука и внешнего монитора) управление яркостью экрана: [backlight.sh](https://github.com/paulelms/shell_helpers/blob/master/backlight.sh).
 В Windows я использовал для этого Monitorian, но в какой-то момент что-то сломали (думаю в видео-драйвере) и ddc утилиты перестали работать с моим монитором.
