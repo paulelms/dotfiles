@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-EXTERNAL_REPLACE='xrandr --output eDP1 --off --output HDMI1 --auto --scale 1'
+EXTERNAL_REPLACE='xrandr --output eDP1 --off --output HDMI1 --auto --scale 1 --primary'
 
 case "$SRANDRD_ACTION" in
         "HDMI1 connected") $EXTERNAL_REPLACE ;;
