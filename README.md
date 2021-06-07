@@ -15,7 +15,7 @@
             Identifier "system-keyboard"
             MatchIsKeyboard "on"
             Option "XkbLayout" "us,ru"
-            Option "XkbModel" "pc105"
+            Option "XkbModel" "microsoft4000"
             Option "XkbOptions" "grp:menu_toggle,grp_led:scroll,caps:ctrl_modifier,terminate:ctrl_alt_bksp,lv3:ralt_switch_multikey,misc:typo"
     EndSection
 
@@ -72,24 +72,13 @@
 ### Автоматическое переключение на внешний монитор
 
 Настраиваю автоматическое переключение на внешний монитор и обратно.
-[Srandrd](https://github.com/jceb/srandrd/) это демон, который мониторит изменения в конфигурации экранов (вместо [autorandr](https://github.com/phillipberndt/autorandr) можно просто использовать xrandr):
+[Srandrd](https://github.com/jceb/srandrd/) это демон, который мониторит изменения в конфигурации экранов (в качестве хендлера можно использовать autorandr):
 
-    srandrd 'autorandr --change --default common'
+    srandrd ~/.local/bin/display_handler.sh
 
-    ➜  ~ tree .config/autorandr 
-    .config/autorandr
-    ├── home
-    │   ├── config
-    │   ├── postswitch
-    │   └── setup
-    ├── outdoor
-    │   ├── config
-    │   ├── postswitch
-    │   └── setup
-    ├── postswitch
-    └── postswitch.d
-        ├── i3-restart
-        └── telegram.sh
+Есть ещё универсальное (для ноутбука и внешнего монитора) управление яркостью экрана: [backlight.sh](https://github.com/paulelms/dotfiles/blob/master/bin/backlight.sh).
 
-Есть ещё универсальное (для ноутбука и внешнего монитора) управление яркостью экрана: [backlight.sh](https://github.com/paulelms/shell_helpers/blob/master/backlight.sh).
-В Windows я использовал для этого Monitorian, но в какой-то момент что-то сломали (думаю в видео-драйвере) и ddc утилиты перестали работать с моим монитором.
+#### Больше не использую
+
+- autorandr (автоматически выбирает подходящую конфигурацию экранов)
+- i3-autodisplay (альтернатива srandrd)

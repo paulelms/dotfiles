@@ -1,0 +1,7 @@
+* TODO Добавить конфигурации
+
+ - [ ] doom.d
+ - [ ] i3wm
+ - [ ] qutebrowser
+ - [ ] zsh
+ - [ ] …
